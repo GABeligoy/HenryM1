@@ -24,6 +24,13 @@ function DecimalABinario(num) {
    }
    return array.join("")
 
+// do {
+//    resto=num%2
+//    num=Math.floor(num/2)
+//    array.unshift(resto)
+// }while(num>0)
+// return array.join("")
+
 }
 
 module.exports = {
