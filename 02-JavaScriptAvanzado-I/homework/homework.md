@@ -29,8 +29,8 @@ console.log(x);  // undefined da 1
 ```
 
 ```javascript
-console.log(bar);  //bar=1
-console.log(baz);   //undefined
+console.log(bar);  //undefined (hoisting) --> con let error
+console.log(baz);   //error
 foo();
 function foo() {
    console.log('Hola!'); //Hola
@@ -56,7 +56,7 @@ console.log(instructor); //Tony
       console.log(instructor);  //Franco
    }
 })();
-console.log(instructor); //Tony
+console.log(instructor); //Tony no cambia porque está dentro de una función y el var sí respeta el contexto de función
 ```
 
 ```javascript
@@ -68,7 +68,7 @@ if (true) {
    console.log(instructor); //The Flash
    console.log(pm);        //Reverse Flash
 }
-console.log(instructor); //Tony var dentro del if cambia el valor global (The Flash)
+console.log(instructor); //Tony var dentro del if cambia el valor porque no respeta el contexto de bloque (The Flash) 
 console.log(pm);         //Franco
 ```
 
@@ -79,20 +79,20 @@ console.log(pm);         //Franco
 ```javascript
 6 / "3"      //2
 "2" * "3"    //6
-4 + 5 + "px"  //9px
-"$" + 4 + 5   //$9
+4 + 5 + "px"  //9px Primero hace la operación de la izq.
+"$" + 4 + 5   //$45
 "4" - 2      //2
-"4px" - 2
+"4px" - 2    //NaN
 7 / 0       //infinity
-{}[0]
+{}[0]       // undefined
 parseInt("09") //9
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
+2 && 5         //5
+5 && 2         //2
+5 || 0         //5
+0 || 5         //5
+[3]+[3]-[10]   //23 primero concatena los dos primeros arrays y luego hace la resta
 3>2>1     //false
-[] == ![]
+[] == ![]  //true un array vacío es lo mismo que no haya array-- si se compara con === es false
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -103,8 +103,8 @@ parseInt("09") //9
 
 ```javascript
 function test() {
-   console.log(a);
-   console.log(foo());
+   console.log(a); //undefined
+   console.log(foo()); //2 las funciones declaradas hacen hoisting
 
    var a = 1;
    function foo() {
@@ -128,7 +128,7 @@ function getFood(food) {
    return snack;
 }
 
-getFood(false);
+getFood(false); //undefined
 ```
 
 ### This
@@ -151,7 +151,7 @@ console.log(obj.prop.getFullname());
 
 var test = obj.prop.getFullname;
 
-console.log(test());
+console.log(test()); //undefined
 ```
 
 ### Event loop
