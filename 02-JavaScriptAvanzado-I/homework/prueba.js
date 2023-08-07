@@ -7,6 +7,8 @@
 // var bar = 1;
 // baz = 2;
 
+const { LinkedList } = require("../../05-EstructuraDeDatos-II/homework/homework");
+
 
 // var instructor = 'Tony';
 // if (true) {
@@ -70,16 +72,55 @@
 
 // console.log(a, b, c);
 
-var myObj = new Object(),
-  str = "myString",
-  rand = Math.random(),
-  obj = new Object();
+// var myObj = new Object(),
+//   str = "myString",
+//   rand = Math.random(),
+//   obj = new Object();
 
-myObj.type = "Sintaxis de puntos";
-myObj["fecha de creación"] = "Cadena con espacios";
-myObj[str] = "Valor de cadena";
-myObj[rand] = "Número aleatorio";
-myObj[obj] = "Object";
-myObj[""] = "Incluso una cadena vacía";
+// myObj.type = "Sintaxis de puntos";
+// myObj["fecha de creación"] = "Cadena con espacios";
+// myObj[str] = "Valor de cadena";
+// myObj[rand] = "Número aleatorio";
+// myObj[obj] = "Object";
+// myObj[""] = "Incluso una cadena vacía";
 
-console.log(myObj);
+// console.log(myObj);
+
+// function sumar(num, tot = 0) {
+//   // si mi número es menor igual `0` dejo de contar y retorno el total
+//   if(num <= 0) return tot;
+
+//   // si no sumo el número actual al total
+//   tot += num;
+//   num -= 1;
+
+//   // y finalmente realizo una nueva invocación
+//   //return sumar(num, tot);
+// }
+// console.log(sumar(5))
+// let n=5
+// console.log(n*(n-1))
+
+LinkedList.prototype.size=function(){
+    let current=this.head
+    let contador=0
+    while(current!==null){
+        contador++
+        current=current.next
+    }
+    return contador
+}
+if(typeof element==="number"){
+    while(actual!==null){
+      if(actual.value===element)return actual.value
+      actual=actual.next
+    }
+    
+  }else if(typeof element==="function"){
+    while(actual!==null){
+      if(element(actual.value))return actual.value
+      actual=actual.next
+    }
+    return null
+
+  }

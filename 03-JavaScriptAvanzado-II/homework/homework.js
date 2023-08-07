@@ -47,8 +47,8 @@ function cacheFunction(cb) {
     if(obj.hasOwnProperty(arg)){
       return obj[arg]
     }
-    obj[arg]=cb(arg)
-    return obj[arg]
+    obj[arg]=cb(arg)    //creando la propiedad llamada como el arg
+    return obj[arg]     //retornando el valor que tiene esa propiedad
   }
   
   
