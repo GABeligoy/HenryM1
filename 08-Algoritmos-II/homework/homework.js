@@ -6,7 +6,7 @@ function quickSort(array) {
   // el array recibido como parámetro
   // Devolver el array ordenado resultante
   // Tu código:
-  let pivote=Math.floor(Math.random()*array.length)
+  let pivote= Math.floor(Math.random()*array.length)
   let izq=[]
   let der=[]
   let arrPiv=[]
